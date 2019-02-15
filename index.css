@@ -45,20 +45,44 @@ header li {
     list-style: none;
     margin-left: 20px;
 }
-section.intro {
-    padding:14em 5%;
+
+section:first-of-type{
+    padding-top:14em
+}
+
+section:nth-child(even){
+    background-color: #f5f5f5
+}
+
+section {
     height: 100%;
+    padding: 5%;
+}
+
+section.intro {
+    background-color: lightblue;
+    background-image: linear-gradient(-30deg, brown 10%, transparent 10%);
 }
 
 section.intro h1{
-    font-size: 5em;
+    font-size: 4em;
     font-weight: 700;
     line-height: 0.8
 }
 
 section.intro .shortIntro {
+    position: relative;
     font-size: 2em;
     padding-bottom: 1em;
+}
+
+section.intro .shortIntro::after {
+    content : "";
+    position: absolute;
+    left:0;
+    bottom:0;
+    height  : 1px;
+    width: 40%;
     border-bottom: 1px solid black
 }
 
@@ -68,11 +92,34 @@ section.intro .externalLinks {
 section.intro .externalLinks .fab{
     margin-right: 0.2em;
 }
-section:nth-child(even) {
-    background-color: lightcyan;
-    min-height: 300px
+
+.aboutMe {
+    vertical-align: middle
 }
-section:nth-child(odd) {
-    background-color: gray;
-    min-height: 300px
+
+.subHead {
+    font-size: 1.2em;
+    font-weight: 600;
+    display: block;
+}
+.tag {
+    display: block;
+    color: #a6a7aa
+}
+
+.left, .right {
+    vertical-align: middle;
+    line-height: 2em;
+}
+
+.left {
+    display: inline-block;
+    width: 20%;
+    text-align: right
+}
+
+.right {
+    display: inline-block;
+    margin-left:10%;
+    width: 60%
 }
