@@ -29,6 +29,7 @@ function currentFocus() {
         
 
     )
+    //get current focus class, if user scroll over 80% of the screen, move to the top of the focusing class
     let current =null
     $(window).on('scroll', ()=>{
         let screenHeight = $(window).height();
