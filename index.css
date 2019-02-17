@@ -66,13 +66,12 @@ a:hover {
 }
 
 section {
-    width: 100vw;
     height: 100vh;
     padding: 2% 5%;
 }
 
 section:first-of-type {
-    padding-top:14em;
+    padding-top: 45vh;
 }
 
 section:nth-child(even){
