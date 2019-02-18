@@ -29,28 +29,32 @@ function currentFocus() {
         
 
     )
-    //get current focus class, if user scroll over 80% of the screen, move to the top of the focusing class
-    let current =null
+    // get current focus class, if user scroll over 80% of the screen, move to the top of the focusing class
+    let current = 'nav'
     $(window).on('scroll', ()=>{
-        let screenHeight = $(window).height();
-        let scrollHeight = $(window).scrollTop()
-        let moveFromScreen = Math.floor(scrollHeight%screenHeight)
-        if(moveFromScreen > screenHeight*0.8) {
-            $('body').on('mouseenter', 'section' , event=>{
-                if (event.currentTarget.className !== current) {
-                    if(event.currentTarget.className !== 'intro') {
-                        $('nav').css('background-color','transparent')
+        //disable for small screen
+        if($(window).width() > 1024){
+            let screenHeight = $(window).height();
+            let scrollHeight = $(window).scrollTop()
+            let moveFromScreen = Math.floor(scrollHeight%screenHeight)
+            if(moveFromScreen > screenHeight*0.9) {
+                $('body').on('mouseover', 'section' , event=>{
+                    if (event.currentTarget.className !== current) {
+                        current = event.currentTarget.className
+                        event.currentTarget.className !== 'contact' && $('html, body').animate({scrollTop: $(event.currentTarget).offset().top}, 200)
+                        if(event.currentTarget.className !== 'intro') {
+                            $('nav').css('background-color','transparent')
+                        }
+                        else {
+                            $('nav').css('background-color','#fff')
+                        }
                     }
-                    else {
-                        $('nav').css('background-color','#fff')
-                    }
-                    $('html, body').animate({scrollTop: $(event.currentTarget).offset().top}, 300)
-                    current = event.currentTarget.className
-                }
-                
-            })
+                    
+                })
+            }
         }
     })
+    
 }
 
 

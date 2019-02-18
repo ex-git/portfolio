@@ -1,8 +1,9 @@
 @media only screen and (max-width: 1024px) {
     section {
         height: unset;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
         padding: 2% 5%;
+        /* min-height: 100vh */
     }
     .left, .right {
         width: 100%;
@@ -22,6 +23,10 @@
     section:first-of-type {
         padding-top: 35vh;
         height: 100vh;
+    }
+    .projectDetail img {
+        max-width: 70vw;
+        max-height: 45vh;
     }
 
 }
