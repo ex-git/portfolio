@@ -41,7 +41,7 @@ function currentFocus() {
                 $('body').on('mouseover', 'section' , event=>{
                     if (event.currentTarget.className !== current) {
                         current = event.currentTarget.className
-                        event.currentTarget.className !== 'contact' && $('html, body').animate({scrollTop: $(event.currentTarget).offset().top}, 200)
+                        $('html, body').animate({scrollTop: $(event.currentTarget).offset().top}, 200)
                         if(event.currentTarget.className !== 'intro') {
                             $('nav').css('background-color','transparent')
                         }
