@@ -29,24 +29,35 @@ function currentFocus() {
         
 
     )
-    // get current focus class, if user scroll over 80% of the screen, move to the top of the focusing class
+    // auto scroll
+    // get current focus class, if user scroll over 90% of the screen, move to the top of the focusing class
     let current = 'nav'
+    //disable for small screen
+    let autoScroll = true
+    $(window).resize(()=>{
+        if($(this).width() < 1024 ) {
+            autoScroll = false
+        }
+        else {
+            autoScroll = true
+        }
+    })
+    
     $(window).on('scroll', ()=>{
-        //disable for small screen
-        if($(window).width() > 1024){
+        if(autoScroll && $(window).width() > 1024){
             let screenHeight = $(window).height();
             let scrollHeight = $(window).scrollTop()
             let moveFromScreen = Math.floor(scrollHeight%screenHeight)
             if(moveFromScreen > screenHeight*0.9) {
                 $('body').on('mouseover', 'section' , event=>{
-                    if (event.currentTarget.className !== current) {
+                    if (autoScroll && event.currentTarget.className !== current) {
                         current = event.currentTarget.className
                         $('html, body').animate({scrollTop: $(event.currentTarget).offset().top}, 200)
                         if(event.currentTarget.className !== 'intro') {
                             $('nav').css('background-color','transparent')
                         }
                         else {
-                            $('nav').css('background-color','#fff')
+                            $('nav').css('background-color','#f8f8f8')
                         }
                     }
                     
